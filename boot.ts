@@ -28,9 +28,10 @@ import { Ng1Bridge } from './ng1Bridge.ts';
 export class AppComponent implements OnInit {
   label: string;
 
-  constructor(router:Router, private bridge:Ng1Bridge)
+  constructor(router:Router, bridge:Ng1Bridge)
   {
     this.router=router;
+    this.bridge=bridge;
   }
   
   ngOnInit() {
@@ -38,7 +39,7 @@ export class AppComponent implements OnInit {
     this.label = 'Ng2 accessing a Ng1 variable: "' + scp.myValue + '"';
 
     //to retrieve an instance of any ng1 service, use:
-    // ** var userService = this.bridge.getService('userService'); the argument should be the name of the service injected on the ng1's scrope
+    // ** var userService = this.bridge.getService('userService'); the argument should be the name of the service injected on the ng1's scope
     // ** userService.getLoggedUser() for example.
   }
 }

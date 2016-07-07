@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/2.0.0-beta.0/angular2-polyfills.js"></script>
+    <script src="https://rawgithub.com/systemjs/systemjs/0.19.6/dist/system.js"></script>
+    <script src="https://code.angularjs.org/tools/typescript.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/2.0.0-beta.0/Rx.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/2.0.0-beta.0/angular2.dev.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/2.0.0-beta.0/router.dev.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/2.0.0-beta.0/http.dev.js"></script>
+    
+    <script>
+      System.config({
+        transpiler: 'typescript',
+        typescriptOptions: { emitDecoratorMetadata: true },
+        packages: {'src': {defaultExtension: 'ts'}}
+      });
+      System.import('boot.ts').then(null, console.error.bind(console));
+    </script>
+  </head>
+
+    <body ng-app="app" ng-controller="appController">
+    <header><h1>{{myValue}}</h1></header>
+
+    <div ng-non-bindable>
+      <my-app></my-app>
+    </div>
+
+    <script>
+        var app = angular.module("app",[]);
+        app.controller("appController",function($scope){
+          $scope.myValue="variable's value coming from ng1 controller";
+        })
+    </script>
+    
+  </body>
+
+</html>

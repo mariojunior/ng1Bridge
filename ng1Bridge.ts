@@ -19,7 +19,7 @@ export class Ng1Bridge {
   }
 
   getService(name:string):any {
-    return (name === null || name !== '') ? this._injector.get(name) : null; //todo: should throw an Excpetion. Name is required.
+    return (name !== null || name !== '') ? this._injector.get(name) : null; //todo: should throw an Excpetion. Name is required.
   }
 
   get globalScope():any {
